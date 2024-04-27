@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     android:padding="16dp"
     android:layout_marginVertical="8dp"
-    android:background="@drawable/rounded_corner">
+    android:background="@drawable/rounded_corner"
+    android:id="@+id/tv_result">
 
     <TextView
         android:layout_width="match_parent"

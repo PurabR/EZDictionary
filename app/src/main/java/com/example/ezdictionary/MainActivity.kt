@@ -1,8 +1,10 @@
 package com.example.ezdictionary
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +12,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ezdictionary.databinding.ActivityMainBinding
+import com.example.ezdictionary.databinding.RecyclerRowBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -31,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         binding.btnSearch.setOnClickListener {
             val word = binding.searchInput.text.toString()
             getMeaning(word)
+
         }
     adapter= MeaningAdapter(emptyList())
         binding.meaningRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -62,10 +66,14 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext, "Word not available", Toast.LENGTH_SHORT).show()
                 }
 
+
             }
+
 
         }
     }
+
+
 
     private fun runUI(reponse : WordResult){
         binding.wordTextview.text = reponse.word
@@ -81,6 +89,11 @@ class MainActivity : AppCompatActivity() {
             binding.btnSearch.visibility = View.VISIBLE
             binding.progressBar.visibility = View.INVISIBLE
         }
+    }
+
+    private fun closeKeyboard(view: View) {
+        val imn = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imn.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
 
