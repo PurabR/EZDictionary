@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="40dp"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+ <RelativeLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content">
+
+
+
+     <EditText
+         android:id="@+id/search_input"
+         android:layout_toLeftOf="@+id/btn_search"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:background="@drawable/rounded_corner"
+         android:hint="Search Word Here!"
+         android:padding="12dp"/>
+     
+     <Button
+         android:layout_width="100dp"
+         android:layout_height="wrap_content"
+         android:id="@+id/btn_search"
+         android:text="Search"
+         android:layout_alignParentEnd="true"
+         android:layout_marginStart="8dp"/>
+     
+     <ProgressBar
+         android:layout_width="100dp"
+         android:layout_height="24dp"
+         android:layout_alignParentEnd="true"
+         android:layout_centerInParent="true"
+         android:indeterminateTint="@color/primary"
+         android:id="@+id/progress_bar"
+         android:visibility="gone"/>
+
+
+
+
+
+ </RelativeLayout>
+
+    <TextView
+        android:id="@+id/word_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="word"
+        android:textSize="30dp"
+        android:text="Word"
+        android:textStyle="bold"
+        android:textColor="#D32F2F"/>
+    <TextView
+        android:id="@+id/phonetic_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/ w o r d /"
+        android:textStyle="bold"
+        android:textColor="#CFB1B1"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/meaning_recycler_view"/>
+
+</LinearLayout>
