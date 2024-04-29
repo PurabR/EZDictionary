@@ -35,6 +35,8 @@ class MainActivity : AppCompatActivity() {
             val word = binding.searchInput.text.toString()
             getMeaning(word)
 
+            closeKeyboard(it)
+
         }
     adapter= MeaningAdapter(emptyList())
         binding.meaningRecyclerView.layoutManager = LinearLayoutManager(this)
